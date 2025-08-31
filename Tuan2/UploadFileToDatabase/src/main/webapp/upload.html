@@ -3,6 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Upload File</title>
+    <style>
+        input[type="text"]:focus, input[type="file"]:focus {
+            border: 2px solid #4CAF50;
+            outline: none;
+            box-shadow: 0 0 5px #4CAF50;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        
+        input[type="submit"] {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 5px 15px;
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
 <form method="post" action="upload" enctype="multipart/form-data">
@@ -26,6 +46,5 @@
         </tr>
     </table>
 </form>
-
 </body>
 </html>
