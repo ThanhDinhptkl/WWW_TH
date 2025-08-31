@@ -23,7 +23,7 @@ public class UploadServlet extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
 
-        uploadPathToSource = "T:\\Tuan2\\UploadFileToDatabase\\src\\main\\webapp\\uploads\\";
+        uploadPathToSource = "T:\\WWW_TH\\Tuan2\\UploadFileToDatabase\\src\\main\\webapp\\uploads\\";
     }
 
     @Override
@@ -32,8 +32,6 @@ public class UploadServlet extends HttpServlet {
         String lastName = req.getParameter("lastName");
 
         InputStream inputStream = null;
-        // luồng dữ liệu nhập của upload file
-        // lấy thông tin tập tin upload trong form, form này gồm nhiều phần dữ liệu text và file (multipart request)
         Part filePart = req.getPart("photo");
 
         String fileUploadName = "";
@@ -42,14 +40,8 @@ public class UploadServlet extends HttpServlet {
             inputStream = filePart.getInputStream();
         }
 
-
         String message = null;
-
-        // lưu Image Field của CSDL vào file này
-        // try-with-resources
         try (Connection conn = DBConnection.getConnection()) {
-
-            // chèn dữ liệu vào CSDL UploadFileServletDB, trường hợp này bảng contacts (khóa tự động tăng)
             String sqlInsert = "INSERT INTO contacts (first_name, last_name, photo) values (?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(sqlInsert);
             statement.setString(1, firstName);
@@ -58,13 +50,11 @@ public class UploadServlet extends HttpServlet {
                 statement.setBlob(3, inputStream);
             }
             int row = statement.executeUpdate();
-            // thực hiện lưu thông tin vào CSDL
             if (row > 0) {
                 message = "File uploaded and saved into database";
             }
 
-
-            // đọc CSDL lưu file
+            // tải file từ CSDL xuống thư mục uploads của ứng dụng
             String filePath = uploadPathToSource + fileUploadName;
             String sqlSelect = "SELECT photo FROM contacts WHERE first_name=? AND last_name=?";
             statement = conn.prepareStatement(sqlSelect);
@@ -84,13 +74,10 @@ public class UploadServlet extends HttpServlet {
                 outputStream.close();
             }
 
-
         } catch (SQLException e) {
             message = "ERROR: " + e.getMessage();
             e.printStackTrace();
         }
-
-        // Forward đến servlet MessageServlet
         req.setAttribute("message", message);
         getServletContext().getRequestDispatcher("/message").forward(req, resp);
     }
