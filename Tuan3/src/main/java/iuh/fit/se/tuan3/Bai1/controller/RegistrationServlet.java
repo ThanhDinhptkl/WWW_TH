@@ -1,6 +1,6 @@
 package iuh.fit.se.tuan3.Bai1.controller;
 
-import iuh.fit.se.tuan3.Bai1.model.Student;
+import iuh.fit.se.tuan3.Bai1.entity.Student;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -45,13 +45,13 @@ public class RegistrationServlet extends HttpServlet {
         String qualifications = classX + "; " + classXII + "; " + masters;
 
         // Tạo Student object
-        iuh.fit.se.tuan3.Bai1.model.Student student = new Student();
+        iuh.fit.se.tuan3.Bai1.entity.Student student = new Student();
         student.setFirstName(firstName);
         student.setLastName(lastName);
         student.setDateOfBirth(dateOfBirth);
         student.setEmail(email);
         student.setMobileNumber(mobileNumber);
-        student.setGender(gender);
+        ((Student) student).setGender(gender);
         student.setAddress(address);
         student.setCityCode(cityCode);
         student.setPinCode(pinCode);
@@ -59,9 +59,6 @@ public class RegistrationServlet extends HttpServlet {
         student.setCountry(country);
         student.setHobbies(hobbies);
         student.setQualifications(qualifications);
-        // Set courses nếu cần
-
-        // Set attribute và forward
         request.setAttribute("student", student);
         request.getRequestDispatcher("result-form.jsp").forward(request, response);
     }

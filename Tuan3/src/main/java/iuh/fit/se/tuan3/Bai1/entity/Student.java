@@ -1,4 +1,4 @@
-package iuh.fit.se.tuan3.Bai1.model;
+package iuh.fit.se.tuan3.Bai1.entity;
 
 import java.util.Arrays;
 
