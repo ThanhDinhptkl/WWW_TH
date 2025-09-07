@@ -1,4 +1,4 @@
-package iuh.fit.se.tuan3.Bai1.entity;
+package iuh.fit.se.tuan3.Bai1.model;
 
 import java.util.Arrays;
 
@@ -17,127 +17,109 @@ public class Student {
     private String[] hobbies;
     private String qualifications;
 
+    // Getters and Setters
     public String getFirstName() {
         return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getMobileNumber() {
-        return mobileNumber;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getCityCode() {
-        return cityCode;
-    }
-
-    public String getPinCode() {
-        return pinCode;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public String[] getHobbies() {
-        return hobbies;
-    }
-
-    public String getQualifications() {
-        return qualifications;
     }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    public String getLastName() {
+        return lastName;
+    }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getDateOfBirth() {
+        return dateOfBirth;
     }
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getMobileNumber() {
+        return mobileNumber;
     }
 
     public void setMobileNumber(String mobileNumber) {
         this.mobileNumber = mobileNumber;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getAddress() {
+        return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
     }
 
+    public String getCityCode() {
+        return cityCode;
+    }
+
     public void setCityCode(String cityCode) {
         this.cityCode = cityCode;
+    }
+
+    public String getPinCode() {
+        return pinCode;
     }
 
     public void setPinCode(String pinCode) {
         this.pinCode = pinCode;
     }
 
+    public String getState() {
+        return state;
+    }
+
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getCountry() {
+        return country;
     }
 
     public void setCountry(String country) {
         this.country = country;
     }
 
+    public String[] getHobbies() {
+        return hobbies;
+    }
+
     public void setHobbies(String[] hobbies) {
         this.hobbies = hobbies;
     }
 
+    public String getQualifications() {
+        return qualifications;
+    }
+
     public void setQualifications(String qualifications) {
         this.qualifications = qualifications;
-    }
-
-    public Student(String firstName, String lastName, String dateOfBirth, String email, String mobileNumber, String gender, String address, String cityCode, String pinCode, String state, String country, String[] hobbies, String qualifications) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.dateOfBirth = dateOfBirth;
-        this.email = email;
-        this.mobileNumber = mobileNumber;
-        this.gender = gender;
-        this.address = address;
-        this.cityCode = cityCode;
-        this.pinCode = pinCode;
-        this.state = state;
-        this.country = country;
-        this.hobbies = hobbies;
-        this.qualifications = qualifications;
-    }
-
-    public Student() {
     }
 
     @Override
