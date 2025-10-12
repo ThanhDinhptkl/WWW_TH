@@ -20,15 +20,34 @@
 
 
 // Sử dụng @Bean trong class Config thay vì file XML
+//package iuh.fit.se.tuan6.main;
+//
+//import iuh.fit.se.tuan6.entities.Employee;
+//import iuh.fit.se.tuan6.config.Config;
+//import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+//
+//public class Main {
+//    public static void main(String[] args) {
+//        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+//        Employee employee1 = context.getBean("employee1", Employee.class);
+//        Employee employee2 = context.getBean("employee2", Employee.class);
+//        System.out.println("Employee 1: " + employee1);
+//        System.out.println("Employee 2: " + employee2);
+//        context.close();
+//    }
+//}
+
+
+// Sử dụng @Bean trong class AppConfig thay vì file XML
 package iuh.fit.se.tuan6.main;
 
 import iuh.fit.se.tuan6.entities.Employee;
-import iuh.fit.se.tuan6.config.Config;
+import iuh.fit.se.tuan6.config.AppConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
         Employee employee1 = context.getBean("employee1", Employee.class);
         Employee employee2 = context.getBean("employee2", Employee.class);
         System.out.println("Employee 1: " + employee1);
