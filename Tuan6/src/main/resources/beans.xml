@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    <bean id="address1" class="iuh.fit.se.tuan6.entities.Address">
+        <property name="city" value="Hanoi"/>
+        <property name="state" value="Ha Noi"/>
+        <property name="country" value="Vietnam"/>
+    </bean>
+
+    <bean id="employee" class="iuh.fit.se.tuan6.entities.Employee">
+        <property name="id" value="1"/>
+        <property name="name" value="Nguyen Van A"/>
+        <property name="address" ref="address1"/>
+    </bean>
+
+    <bean id="address2" class="iuh.fit.se.tuan6.entities.Address">
+        <property name="city" value="Ho Chi Minh"/>
+        <property name="state" value="Ho Chi Minh"/>
+        <property name="country" value="Vietnam"/>
+    </bean>
+
+    <bean id="employee2" class="iuh.fit.se.tuan6.entities.Employee">
+        <property name="id" value="2"/>
+        <property name="name" value="Nguyen Van B"/>
+        <property name="address" ref="address2"/>
+    </bean>
+</beans>
